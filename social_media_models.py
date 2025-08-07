@@ -62,37 +62,7 @@ class Posts(Base):
 Base.metadata.create_all(bind=engine)
 
 
-#==================================================== Creating Data =====================================================
 
-#create database session
-Session = sessionmaker(engine) #Creates a Session class
-session = Session() #Creating an instance of the Session class
-
-#Creating a new_user and adding them to the db
-# new_user = Users(username='dylank', bio='Just a guy', email='dk@email.com', password='123')
-# session.add(new_user) #Adds it to the session
-# session.commit()
-
-#Creating a new_post for the user in my db.
-# new_post = Posts(img='https://i1.sndcdn.com/artworks-LiehzC8qIN6z1pFa-iGq9Fg-t1080x1080.jpg', caption='Just a chill guy', user_id=1)
-# session.add(new_post)
-# session.commit()
-
-new_users = [
-    Users(username= 'joeyv', bio = 'hi', email ='jv@email.com', password ='123'),
-    Users(username='arnett', bio='Just a chill guy navigating the code jungle. Former chef, future engineer.', email='arnett@example.com', password='s3cr3t'),
-    Users(username= 'niknak', bio = 'helo', email ='niknak@email.com', password ='abc123'),
-    Users(username='Leo duley',bio='Lab rat', email='leoduley@email.com', password = '1234567' ),
-    Users(username='Mashal_Mathers', bio='The real slim Shady', email='eminem@shady.com', password='password123'),
-    Users(username="thuchain", bio="hello world", email="thu@email.com", password="2222"),
-    Users(username ="gotcurds", bio = "cheese is life nuff said", email = "nachocheese@queso.brie", password= "nicetrybigguy"),
-    Users(username= 'Daniel_O', bio= 'software development is cool', email= 'danieltravels033@gmail.com', password='123acb'),
-    Users(username='sharogers', bio='hello', email='sharogers@email.com', password='1234'),
-    Users(username='Spuck', bio= 'Wassup', email='spuck@email.com', password='8692' ),
-    Users(username='RayKay', bio='guy in OK', email='rayk@email.com', password='4567'),
-    Users(username='chrisrod', bio='Hello', email='crodriguezaerc@gmail.com', password='12345')
-
-]
 
 
 

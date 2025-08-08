@@ -1,7 +1,9 @@
 from flask_migrate import current
-from models import session
+from models import session, Users
 from bp_auth import register_user, login
 from bp_users import show_profile, update_profile, delete_user
+from bp_posts import delete_post, show_my_posts, create_post, update_post
+from bp_socials import like_post, unlike_post, view_liked_posts
 
 
 
@@ -81,27 +83,48 @@ def posts_menu(current_user):
 5.) Back""")
         choice = input("choose 1-5: ")
         if choice == '1':
-            #View all of my posts
-            pass
+            show_my_posts(current_user)
         elif choice == '2':
-            #Create a post
-            pass
+            create_post(current_user)
         elif choice == '3':
-            #Update a post
-            pass
+            update_post(current_user)
         elif choice == '4':
-            #Delete a post
-            pass
+            delete_post(current_user)
         elif choice == '5':
             return
         else:
             print("Invalid Selection.")
 
+def social_menu(current_user):
+    while True:
+        print("""
+1.) Like Post
+2.) Unlike Post
+3.) View Liked Posts
+4.) Follow User
+5.) Unfollow User
+""")
+        choice = input("choose 1-6: ")
+        if choice == '1':
+            like_post(current_user)
+        if choice == '2':
+            unlike_post(current_user)
+        if choice == '3':
+            view_liked_posts(current_user)
+        if choice == '4':
+            pass
+        if choice == '5':
+            pass
+        if choice == '6':
+            pass
+
 
 
 def main():
     
-    current_user = welcome_menu()
+    # current_user = welcome_menu() Not going to log in everytime I want to test
+
+    current_user = session.get(Users, 1) #Make the 1st user my current user skipping the loggin process
     
     if current_user:
         while True:
@@ -115,11 +138,9 @@ def main():
             if choice == '1':
                 user_menu(current_user)
             elif choice == '2':
-                #show Posts menu
-                pass
+                posts_menu(current_user)
             elif choice == '3':
-                #show Social Menu
-                pass
+                social_menu(current_user)
             else:
                 print("Invalid Selection.")
     

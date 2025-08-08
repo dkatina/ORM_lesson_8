@@ -34,7 +34,7 @@ class Users(Base):
     password: Mapped[str] = mapped_column(String(100), nullable=False)
 
     posts: Mapped[list['Posts']] = relationship('Posts', back_populates='user')
-    liked_post: Mapped[list['Posts']] = relationship('Posts', secondary=likes, back_populates='liked_by')
+    liked_posts: Mapped[list['Posts']] = relationship('Posts', secondary=likes, back_populates='liked_by')
                                                     
                                                     
     #Self Referential Relationship attribute                                        
@@ -53,7 +53,7 @@ class Posts(Base):
     id: Mapped[int] = mapped_column(primary_key=True) #auto increment
     img: Mapped[str] = mapped_column(String(250), nullable=False)
     caption: Mapped[str] = mapped_column(String(225), nullable=True)
-    location: Mapped[float] = mapped_column(Float, nullable=True)
+    location: Mapped[float] = mapped_column(Float, nullable=True) #Should be coordinates
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey('users.id'), nullable=False) #FK's need the table name they are pointing to, and the field
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now())
 

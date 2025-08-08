@@ -5,6 +5,8 @@ from datetime import datetime
 Base = declarative_base()
 
 engine = create_engine('sqlite:///socials.db')
+Session = sessionmaker(bind=engine)
+session = Session()
 
 following = Table(
     'following',
@@ -35,7 +37,7 @@ class Users(Base):
     liked_post: Mapped[list['Posts']] = relationship('Posts', secondary=likes, back_populates='liked_by')
                                                     
                                                     
-                                                    
+    #Self Referential Relationship attribute                                        
     following: Mapped[list['Users']] = relationship(
         'Users', 
         secondary="following", 

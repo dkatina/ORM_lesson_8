@@ -1,0 +1,41 @@
+
+What should we be able to do with a social media app?
+
+
+- Like other's posts
+- Follow other users
+- Browse my feed
+- create posts
+- create users
+- login
+- update account
+- delete account
+- update posts
+- delete posts
+- search users (potentially look at their posts)
+
+
+PRD 
+
+- Track the current user
+
+USERS:
+- CRUD for users
+- register user (Create user)
+- login user (sets my current user)
+
+POSTS:
+- CRUD for posts
+
+SOCIAL FUNCTIONS:
+- Liking posts
+- unlike
+- Following other users
+- unfollow users
+- view followers
+- view following
+- search other users
+
+
+- View my feed (All the posts that people I follow have made)
+
